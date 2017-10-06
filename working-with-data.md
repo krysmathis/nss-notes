@@ -54,6 +54,23 @@ yearlyTotal.find(function(yearObject){
     }
 });
 ```
+## Local Data
+
+```javascript
+localStorage.setItem()
+localStorage.getItem()
+
+//elephant example that doesn't work...because its not serialized
+localStorage.setItem("elephant", elephant)
+localStorage.getItem("elephant") //--returns "[object Object]"
+```
+You need to "serialize" data, JSON is a method to do this
+
+```javascript
+localStorage.setItem("rainfall",JSON.stringify(RainfallDatabase));
+JSON.parse(localStorage.getItem("rainfall"));
+```
+
 
 ### Challenges
 - [ ] Challenge use the forEach loop on an array
