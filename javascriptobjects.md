@@ -3,7 +3,19 @@
 
 ## Important Properties
 * a way to represent a physical thing in code, it has properties
+* unlike c# there are no classes (object factories)
 * __.hasOwnProperty("x")__ -> returns true and false depending of whether the object has that property
+
+## The basic way to define an object
+const human = {
+    "species": "human",
+    saySpecies: function() {
+        console.log(this.species);
+    },
+    sayName: function() {
+        console.log(this.name);
+    }
+};
 
 ## Prototypal Inheritance vs Classical
 
