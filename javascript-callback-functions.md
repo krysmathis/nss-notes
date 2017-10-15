@@ -80,3 +80,56 @@ setInterval(callback,interval);
 ```
 Updating a clock page: [jsfiddle](https://jsfiddle.net/zosgamwh/)
 
+! The callback doesn't launch immediately, you'll need to call it yourself if you want it to launch right away.
+
+## Callback Functions with Arguments
+
+```javascript
+const div1 = document.getElementById('first');
+
+function makeRed(element) {
+    element.style.backgroundColor = "red";
+}
+
+function addStyleToElement(element,callback) {
+    callback(element);
+}
+
+addStyleToElement(div1, makeRed);
+           
+```
+
+# Callbacks and the DOM
+
+## Using the same callback on multiple objects
+```javascript
+element.addEventListener(eventType, callback);
+```
+
+Events are triggered when a matching eventType is executed. Events have two properties.
+```
+event.type
+event.target
+```
+__Remember that the addEventListener will pass in the event object__. You can use the two properties of type and target to make changes.
+
+Example
+```javascript
+const nameInput = document.getElementById('name');
+const messageTextArea = document.getElementById('message');
+
+const focusHandler = event => {
+  event.target.className = "highlight";
+};
+
+const blurHandler = event => {
+  event.target.className = "";
+};
+
+nameInput.addEventListener("focus", focusHandler);
+nameInput.addEventListener("blur", blurHandler);
+
+messageTextArea.addEventListener("focus", focusHandler);
+messageTextArea.addEventListener("blur", blurHandler);
+```
+[example - jsfiddle](https://jsfiddle.net/k8zgqe61/);
