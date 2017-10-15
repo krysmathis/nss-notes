@@ -70,7 +70,18 @@ You need to "serialize" data, JSON is a method to do this
 localStorage.setItem("rainfall",JSON.stringify(RainfallDatabase));
 JSON.parse(localStorage.getItem("rainfall"));
 ```
+### a way to sort an array of objects
+```javascript
+const sortedGrades = [{A:4}, {B:3}, {C:5}];
 
+let finalResults = sortedGrades.sort(function(first, second) {
+    const firstNumberOfGrades = Object.values(first)[0]
+    const secondNumberOfGrades = Object.values(second)[0]
+    return secondNumberOfGrades - firstNumberOfGrades
+});
+
+finalResults
+```
 
 ### Challenges
 - [ ] Challenge use the forEach loop on an array
