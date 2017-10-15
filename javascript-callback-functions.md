@@ -33,5 +33,50 @@ function executeCallback( callback ) {
 
 executeCallback(sayHello);
 ```
+## Anonymous Functions
+Also known as in-lining or writing a function inline. These are often seen as more explicit
 
+How you could change the example above:
+```javascript
+
+function executeCallback( callback ) {
+    callback();
+}
+
+executeCallback(function(){
+    console.log("hello");
+});
+```
+
+## Arrow Functions
+Fat arrows to simplify
+
+```javascript
+function executeCallback(callback) {
+    callback();
+}
+
+executeCallback(() => console.log("hello"));
+
+executeCallback(() => console.log('goodbye'));
+```
+## Using Timers
+
+### setTimeout (one-time)
+```setTimeout(callback, delay)```
+
+```javascript
+const surpriseSection = document.getElementById('surprise');
+
+let randomTime = Math.random() * 4000;
+
+setTimeout(() => 
+    surpriseSection.textContent = '🎉 Surprise! 🎉', randomTime);
+```
+
+### setInterval
+```javascript
+setInterval(callback,interval);
+```
+Updating a clock page: [jsfiddle](https://jsfiddle.net/zosgamwh/)
 
