@@ -77,6 +77,11 @@ When the grid is generated automatically you can control the order
 ```
 
 # Grid Template Areas
+### An alternate approach because what I outline below doesn't seem to work some of the times
+
+1. Define a ```grid-template:``` in your containter
+1. Define the ```grid-column``` and ```grid-rows``` in your 
+
 
 1. Define ```grid-area``` for each grid item 
 1. set up you ```grid-template-area``` in your grid container
