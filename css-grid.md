@@ -56,10 +56,23 @@ With ```grid-auto-flow: columns;``` you can define that new content is placed in
     grid-column-end: 4; /* or -1 to extend to end */
 }
 
+.element {
+    grid-column-start: 3;
+    grid-column-end: span 4; /* or -1 to extend to end */
+}
+
 /* shorthand */
 .element {
     grid-column: 3 / 4;
     grid-row: 1 / -1;
+}
+```
+
+# Grid Order
+When the grid is generated automatically you can control the order
+```css 
+.poison {
+    order: 1;
 }
 ```
 
