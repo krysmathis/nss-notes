@@ -51,3 +51,37 @@ var will = Object.create(musician);
 will.name = "Will";
 will.instrument = "Drums";
 
+```
+
+## Defining Getters and Setters
+
+```javascript
+const newObj = function() {
+    
+    let _val = 5;
+    
+    // Object.create is a function!!!
+    return Object.create(null,{
+        "foo": {
+            writable: true,
+            configurable: true,
+            value: "hello"
+        },
+        "v": {
+            value: 5,
+            enumerable: true,
+            writable: true
+        },
+        "hiddenValue": {
+            get: function() {return _val;},
+            set: function(v) {_val = v;}
+        }
+    });
+};
+
+
+const obj = newObj();
+console.log(obj.hiddenValue.get()); //returns 5
+obj.hiddenValue.set(20);
+console.log(obj.hiddenValue.get()); //return 20
+```
