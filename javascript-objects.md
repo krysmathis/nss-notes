@@ -85,3 +85,52 @@ console.log(obj.hiddenValue.get()); //returns 5
 obj.hiddenValue.set(20);
 console.log(obj.hiddenValue.get()); //return 20
 ```
+
+## Composition Using Object.assign
+
+```javascript
+// The composed object
+const obj = (name) => {
+    
+    let state = {
+        "musicType": "heavy",
+        "volume": "loud"
+    };
+
+    return Object.assign({}, 
+        clapper(state)
+    );
+};
+
+// it is made up of smaller objects
+const clapper = function(state) {
+    return Object.create(null,{
+        happy: {
+            value: false,
+            enumerable: true,
+            writable: true
+        },
+        applaud: 
+        {
+            value: function() { console.log("clap,clap,clap")},
+            enumerable: true, // has to be enumerable for this to work!
+            writable: true
+        },
+    });
+};
+// const clappy = clapper("one");
+// clappy.applaud();
+
+const obie = obj("obie");
+obie.applaud();
+
+// obie has access to the properties of it's composed objects
+console.log(obie.happy);
+obie.happy = true;
+console.log(obie.happy);
+
+// the original clapper object has it's own state
+const clappy = clapper();
+console.log(clappy.happy);
+clappy.applaud();
+```
