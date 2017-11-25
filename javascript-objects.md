@@ -134,3 +134,19 @@ const clappy = clapper();
 console.log(clappy.happy);
 clappy.applaud();
 ```
+
+## Fat Arrow Functions That Return Objects 
+
+```javascript
+
+// normal function expression returning an object
+const barker = function(state) {
+    return {bark: () => console.log("Woof, I am " + state.name)};
+};
+// This can be done with fat arrows too but
+// You have to wrap the curly braces in parenthesis so the compiler
+// knows how to handle it
+const driver = (state) => ({
+    drive: () => state.position = state.position + state.speed
+});
+```
